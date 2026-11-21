@@ -27,3 +27,5 @@ python replay.py --data-root data --output runs/full
 ```
 
 Use a fresh output path. Add `--device mps` to select the original backend explicitly. The runner checks the SHA-256 of each prepared benchmark. Take the mean of `validation.json` values over the matching training seeds (42, 43, 44) for each model and purchase fraction. Popularity uses one deterministic ranking; Pretrain and Transformer on expanded catalogs use seed 42 only. Validation NDCG@10 is the checkpoint selection metric. All candidates in the target category are ranked. The fractions subsample unordered purchase pairs with a fixed order; the full training purchase mask is kept for evaluation. Electronics uses newly observed cross-category purchase pairs at validation. The ID variant assigns a token to each item present in a training edge; all other items share an unknown token.
+
+For the paired source-level bootstrap interval on the change in the Shared advantage, run `python sparsity_interval.py runs/full/electronics-id-v2` after replay.
