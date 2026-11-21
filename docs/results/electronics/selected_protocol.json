@@ -1,0 +1,170 @@
+{
+  "split_fingerprint": "d277665eeedd8efa02e4443098ddba0348d8eaa01a4b794b4314c0dddf4482d0",
+  "selection_metric": "validation NDCG@10",
+  "validation_seed": 42,
+  "test_seeds": [
+    42,
+    43,
+    44
+  ],
+  "rank_grid": [
+    16,
+    32
+  ],
+  "shared_rank_groups": [
+    [
+      "Tucker buy-only",
+      "Tucker buy+view",
+      "HOSVD"
+    ],
+    [
+      "TwoTower Buy-only",
+      "TwoTower Mixed",
+      "TwoTower Shared"
+    ],
+    [
+      "DistMult buy-only",
+      "DistMult buy+view"
+    ],
+    [
+      "CP buy-only",
+      "CP buy+view"
+    ],
+    [
+      "ComplEx buy-only",
+      "ComplEx buy+view"
+    ],
+    [
+      "Tucker 3D",
+      "Tucker 4D"
+    ]
+  ],
+  "view_weight_grid": [
+    0.25,
+    0.5,
+    1.0
+  ],
+  "buy_fractions": [
+    1.0,
+    0.5,
+    0.25
+  ],
+  "quality_margin_absolute": 0.01,
+  "selected_models": [
+    {
+      "name": "MostPopular",
+      "model": "most_popular"
+    },
+    {
+      "name": "Tucker buy-only",
+      "model": "tucker",
+      "use_views": false,
+      "training": {
+        "rank": 32
+      }
+    },
+    {
+      "name": "Tucker buy+view",
+      "model": "tucker",
+      "training": {
+        "rank": 32,
+        "view_weight": 0.25
+      }
+    },
+    {
+      "name": "TwoTower Buy-only",
+      "model": "two_tower",
+      "mode": "buy_only",
+      "training": {
+        "rank": 16
+      }
+    },
+    {
+      "name": "TwoTower Mixed",
+      "model": "two_tower",
+      "mode": "mixed",
+      "training": {
+        "rank": 16
+      }
+    },
+    {
+      "name": "TwoTower Shared",
+      "model": "two_tower",
+      "mode": "shared",
+      "training": {
+        "rank": 16,
+        "view_weight": 0.25
+      }
+    },
+    {
+      "name": "HOSVD",
+      "model": "hosvd",
+      "training": {
+        "rank": 32
+      }
+    },
+    {
+      "name": "DistMult buy-only",
+      "model": "distmult",
+      "use_views": false,
+      "training": {
+        "rank": 32
+      }
+    },
+    {
+      "name": "DistMult buy+view",
+      "model": "distmult",
+      "training": {
+        "rank": 32
+      }
+    },
+    {
+      "name": "CP buy-only",
+      "model": "cp",
+      "use_views": false,
+      "training": {
+        "rank": 16
+      }
+    },
+    {
+      "name": "CP buy+view",
+      "model": "cp",
+      "training": {
+        "rank": 16
+      }
+    },
+    {
+      "name": "ComplEx buy-only",
+      "model": "complex",
+      "use_views": false,
+      "training": {
+        "rank": 16
+      }
+    },
+    {
+      "name": "ComplEx buy+view",
+      "model": "complex",
+      "training": {
+        "rank": 16
+      }
+    },
+    {
+      "name": "MIG-TF",
+      "model": "mig_tf",
+      "hyperbolic_rank": 4,
+      "training": {
+        "rank": 32
+      }
+    },
+    {
+      "name": "Graph buy-buy",
+      "model": "graph_paths",
+      "view_weight": 0
+    },
+    {
+      "name": "Graph mixed paths",
+      "model": "graph_paths",
+      "view_weight": 1.0
+    }
+  ]
+}

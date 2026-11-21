@@ -1,0 +1,141 @@
+{
+  "catalog_size": 20000,
+  "code_revision": null,
+  "config": {
+    "buy_fraction": 1.0,
+    "max_items": 20000,
+    "models": [
+      {
+        "model": "tucker",
+        "name": "Tucker buy-only",
+        "training": {
+          "rank": 32
+        },
+        "use_views": false
+      },
+      {
+        "model": "tucker",
+        "name": "Tucker buy+view",
+        "training": {
+          "rank": 32,
+          "view_weight": 0.25
+        }
+      },
+      {
+        "mode": "mixed",
+        "model": "two_tower",
+        "name": "TwoTower Mixed",
+        "training": {
+          "rank": 16
+        }
+      },
+      {
+        "model": "hosvd",
+        "name": "HOSVD",
+        "training": {
+          "rank": 32
+        }
+      },
+      {
+        "model": "distmult",
+        "name": "DistMult buy-only",
+        "training": {
+          "rank": 32
+        },
+        "use_views": false
+      },
+      {
+        "model": "distmult",
+        "name": "DistMult buy+view",
+        "training": {
+          "rank": 32
+        }
+      },
+      {
+        "model": "cp",
+        "name": "CP buy-only",
+        "training": {
+          "rank": 32
+        },
+        "use_views": false
+      },
+      {
+        "model": "cp",
+        "name": "CP buy+view",
+        "training": {
+          "rank": 32
+        }
+      },
+      {
+        "model": "complex",
+        "name": "ComplEx buy-only",
+        "training": {
+          "rank": 16
+        },
+        "use_views": false
+      },
+      {
+        "model": "complex",
+        "name": "ComplEx buy+view",
+        "training": {
+          "rank": 16
+        }
+      },
+      {
+        "hyperbolic_rank": 4,
+        "model": "mig_tf",
+        "name": "MIG-TF",
+        "training": {
+          "rank": 32
+        }
+      },
+      {
+        "model": "graph_paths",
+        "name": "Graph buy-buy",
+        "view_weight": 0
+      },
+      {
+        "model": "graph_paths",
+        "name": "Graph mixed paths",
+        "view_weight": 0.5
+      }
+    ],
+    "subsample_seed": 42,
+    "training": {
+      "batch_size": 512,
+      "device": "cpu",
+      "epochs": 5,
+      "negatives": 3,
+      "rank": 32,
+      "seed": 42,
+      "view_examples_per_epoch": 4096,
+      "view_weight": 0.5
+    }
+  },
+  "device": "cpu",
+  "eligible_queries": 6643,
+  "numpy": "2.3.5",
+  "pandas": "2.3.3",
+  "partition": "test",
+  "platform": "macOS-26.4-arm64-arm-64bit-Mach-O",
+  "python": "3.14.3",
+  "scipy": "1.16.3",
+  "source_fingerprint": "de1ba4031ef8b4c987ba40d324c6c5777e2bed9f79befae3afd2872a52ab131c",
+  "split_fingerprint": "67a11f83477a6b29940cdf0a6fd58adc526a404f12425bd7d7437b7e8145bef1",
+  "torch": "2.15.0",
+  "total_queries": 7200,
+  "train_buy": 68442,
+  "train_view": 33148,
+  "training": {
+    "batch_size": 512,
+    "device": "cpu",
+    "epochs": 5,
+    "learning_rate": 0.01,
+    "negatives": 3,
+    "rank": 32,
+    "seed": 42,
+    "view_examples_per_epoch": 4096,
+    "view_weight": 0.5
+  },
+  "users": 0
+}

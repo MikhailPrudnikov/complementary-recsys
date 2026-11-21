@@ -1,0 +1,16 @@
+{
+  "max_items": 20000,
+  "personalized": true,
+  "training": {
+    "device": "cpu",
+    "seed": 42,
+    "rank": 16,
+    "epochs": 5,
+    "batch_size": 512,
+    "negatives": 3
+  },
+  "models": [
+    {"name": "Tucker 3D", "model": "tucker"},
+    {"name": "Tucker 4D", "model": "tucker4d", "user_rank": 4}
+  ]
+}

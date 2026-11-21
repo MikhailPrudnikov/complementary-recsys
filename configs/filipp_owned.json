@@ -1,0 +1,110 @@
+{
+  "max_items": 20000,
+  "buy_fraction": 1,
+  "subsample_seed": 42,
+  "training": {
+    "device": "cpu",
+    "rank": 32,
+    "epochs": 5,
+    "batch_size": 512,
+    "negatives": 3,
+    "view_weight": 0.5,
+    "view_examples_per_epoch": 4096
+  },
+  "models": [
+    {
+      "name": "Tucker buy-only",
+      "model": "tucker",
+      "use_views": false,
+      "training": {
+        "rank": 32
+      }
+    },
+    {
+      "name": "Tucker buy+view",
+      "model": "tucker",
+      "training": {
+        "rank": 32,
+        "view_weight": 0.25
+      }
+    },
+    {
+      "name": "TwoTower Mixed",
+      "model": "two_tower",
+      "mode": "mixed",
+      "training": {
+        "rank": 16
+      }
+    },
+    {
+      "name": "HOSVD",
+      "model": "hosvd",
+      "training": {
+        "rank": 32
+      }
+    },
+    {
+      "name": "DistMult buy-only",
+      "model": "distmult",
+      "use_views": false,
+      "training": {
+        "rank": 32
+      }
+    },
+    {
+      "name": "DistMult buy+view",
+      "model": "distmult",
+      "training": {
+        "rank": 32
+      }
+    },
+    {
+      "name": "CP buy-only",
+      "model": "cp",
+      "use_views": false,
+      "training": {
+        "rank": 32
+      }
+    },
+    {
+      "name": "CP buy+view",
+      "model": "cp",
+      "training": {
+        "rank": 32
+      }
+    },
+    {
+      "name": "ComplEx buy-only",
+      "model": "complex",
+      "use_views": false,
+      "training": {
+        "rank": 16
+      }
+    },
+    {
+      "name": "ComplEx buy+view",
+      "model": "complex",
+      "training": {
+        "rank": 16
+      }
+    },
+    {
+      "name": "MIG-TF",
+      "model": "mig_tf",
+      "hyperbolic_rank": 4,
+      "training": {
+        "rank": 32
+      }
+    },
+    {
+      "name": "Graph buy-buy",
+      "model": "graph_paths",
+      "view_weight": 0
+    },
+    {
+      "name": "Graph mixed paths",
+      "model": "graph_paths",
+      "view_weight": 0.5
+    }
+  ]
+}

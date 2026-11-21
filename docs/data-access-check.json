@@ -1,0 +1,34 @@
+{
+  "checked_on": "2026-10-20",
+  "url": "https://mcauleylab.ucsd.edu/public_datasets/data/amazon_v2/metaFiles2/meta_Musical_Instruments.json.gz",
+  "http_status": 200,
+  "sampling": "first 1000 records; not random; not representative",
+  "records_read": 1000,
+  "nonempty_fields": {
+    "asin": 1000,
+    "title": 1000,
+    "category": 950,
+    "also_buy": 104,
+    "brand": 973,
+    "price": 388,
+    "also_view": 347
+  },
+  "example": {
+    "asin": "0000989983",
+    "title": "Wooden Percussion 2 Piece Set of 3 Inch Cricket and Inch Owl",
+    "category": [
+      "Musical Instruments",
+      "Drums & Percussion",
+      "Hand Percussion",
+      "Folk & World",
+      "Latin Percussion",
+      "Guiros"
+    ],
+    "also_buy": [
+      "B00NP8GYVS",
+      "B00NP80XMO",
+      "B00NP8M098"
+    ]
+  },
+  "full_download": false
+}

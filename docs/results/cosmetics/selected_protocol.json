@@ -1,0 +1,64 @@
+{
+  "split_fingerprint": "b47fc7faa9456ca6262d80e06b7298f6c47c0022f77df95ab8af61bb9ec0fa5e",
+  "selection_metric": "validation NDCG@10",
+  "validation_seed": 42,
+  "test_seeds": [
+    42,
+    43,
+    44
+  ],
+  "rank_grid": [
+    8,
+    16
+  ],
+  "shared_rank_groups": [
+    [
+      "Tucker buy-only",
+      "Tucker buy+view",
+      "HOSVD"
+    ],
+    [
+      "TwoTower Buy-only",
+      "TwoTower Mixed",
+      "TwoTower Shared"
+    ],
+    [
+      "DistMult buy-only",
+      "DistMult buy+view"
+    ],
+    [
+      "CP buy-only",
+      "CP buy+view"
+    ],
+    [
+      "ComplEx buy-only",
+      "ComplEx buy+view"
+    ],
+    [
+      "Tucker 3D",
+      "Tucker 4D"
+    ]
+  ],
+  "view_weight_grid": [],
+  "buy_fractions": [
+    1.0
+  ],
+  "quality_margin_absolute": 0.01,
+  "selected_models": [
+    {
+      "name": "Tucker 3D",
+      "model": "tucker",
+      "training": {
+        "rank": 16
+      }
+    },
+    {
+      "name": "Tucker 4D",
+      "model": "tucker4d",
+      "user_rank": 4,
+      "training": {
+        "rank": 16
+      }
+    }
+  ]
+}

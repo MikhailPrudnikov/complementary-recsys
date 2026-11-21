@@ -1,0 +1,142 @@
+{
+  "split_fingerprint": "67a11f83477a6b29940cdf0a6fd58adc526a404f12425bd7d7437b7e8145bef1",
+  "selection_metric": "fixed config",
+  "validation_seed": null,
+  "test_seeds": [
+    42,
+    43,
+    44
+  ],
+  "rank_grid": [],
+  "shared_rank_groups": [
+    [
+      "Tucker buy-only",
+      "Tucker buy+view",
+      "HOSVD"
+    ],
+    [
+      "TwoTower Buy-only",
+      "TwoTower Mixed",
+      "TwoTower Shared"
+    ],
+    [
+      "DistMult buy-only",
+      "DistMult buy+view"
+    ],
+    [
+      "CP buy-only",
+      "CP buy+view"
+    ],
+    [
+      "ComplEx buy-only",
+      "ComplEx buy+view"
+    ],
+    [
+      "Tucker 3D",
+      "Tucker 4D"
+    ]
+  ],
+  "view_weight_grid": [],
+  "buy_fractions": [
+    1.0,
+    0.5,
+    0.25
+  ],
+  "quality_margin_absolute": 0.01,
+  "selected_models": [
+    {
+      "name": "Tucker buy-only",
+      "model": "tucker",
+      "use_views": false,
+      "training": {
+        "rank": 32
+      }
+    },
+    {
+      "name": "Tucker buy+view",
+      "model": "tucker",
+      "training": {
+        "rank": 32,
+        "view_weight": 0.25
+      }
+    },
+    {
+      "name": "TwoTower Mixed",
+      "model": "two_tower",
+      "mode": "mixed",
+      "training": {
+        "rank": 16
+      }
+    },
+    {
+      "name": "HOSVD",
+      "model": "hosvd",
+      "training": {
+        "rank": 32
+      }
+    },
+    {
+      "name": "DistMult buy-only",
+      "model": "distmult",
+      "use_views": false,
+      "training": {
+        "rank": 32
+      }
+    },
+    {
+      "name": "DistMult buy+view",
+      "model": "distmult",
+      "training": {
+        "rank": 32
+      }
+    },
+    {
+      "name": "CP buy-only",
+      "model": "cp",
+      "use_views": false,
+      "training": {
+        "rank": 32
+      }
+    },
+    {
+      "name": "CP buy+view",
+      "model": "cp",
+      "training": {
+        "rank": 32
+      }
+    },
+    {
+      "name": "ComplEx buy-only",
+      "model": "complex",
+      "use_views": false,
+      "training": {
+        "rank": 16
+      }
+    },
+    {
+      "name": "ComplEx buy+view",
+      "model": "complex",
+      "training": {
+        "rank": 16
+      }
+    },
+    {
+      "name": "MIG-TF",
+      "model": "mig_tf",
+      "hyperbolic_rank": 4,
+      "training": {
+        "rank": 32
+      }
+    },
+    {
+      "name": "Graph buy-buy",
+      "model": "graph_paths",
+      "view_weight": 0
+    },
+    {
+      "name": "Graph mixed paths",
+      "model": "graph_paths",
+      "view_weight": 0.5
+    }
+  ]
+}

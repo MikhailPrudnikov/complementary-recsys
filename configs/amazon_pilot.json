@@ -1,0 +1,29 @@
+{
+  "max_items": 20000,
+  "buy_fraction": 1,
+  "subsample_seed": 42,
+  "training": {
+    "device": "cpu",
+    "seed": 42,
+    "rank": 32,
+    "epochs": 5,
+    "batch_size": 512,
+    "negatives": 3,
+    "view_weight": 0.5
+  },
+  "models": [
+    {"name": "MostPopular", "model": "most_popular"},
+    {"name": "Tucker buy-only", "model": "tucker", "use_views": false},
+    {"name": "Tucker buy+view", "model": "tucker"},
+    {"name": "DistMult buy-only", "model": "distmult", "use_views": false},
+    {"name": "DistMult buy+view", "model": "distmult"},
+    {"name": "CP buy-only", "model": "cp", "use_views": false},
+    {"name": "CP buy+view", "model": "cp"},
+    {"name": "ComplEx buy-only", "model": "complex", "use_views": false},
+    {"name": "ComplEx buy+view", "model": "complex"},
+    {"name": "HOSVD", "model": "hosvd"},
+    {"name": "Graph buy-buy", "model": "graph_paths", "view_weight": 0},
+    {"name": "Graph mixed paths", "model": "graph_paths", "view_weight": 0.5},
+    {"name": "MIG-TF", "model": "mig_tf", "hyperbolic_rank": 4}
+  ]
+}

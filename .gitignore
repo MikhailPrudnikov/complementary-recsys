@@ -16,6 +16,7 @@ venv/
 .env
 .env.*
 !.env.example
+/API_TOKEN.txt
 *.session
 *.session-journal
 *.pem
