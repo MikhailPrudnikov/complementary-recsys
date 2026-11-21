@@ -26,7 +26,7 @@ for a in ax:a.grid(axis='y',alpha=.2);a.set_axisbelow(True)
 fig.savefig(OUT/'data_audit.png',dpi=180)
 plt.close(fig)
 fig,ax=plt.subplots(figsize=(8.5,4.2),layout='constrained')
-total=np.array([747,1015086,740]); known=np.array([120,549360,73]); share=known/total*100
+total=np.array([758,1015086,740]); known=np.array([121,549360,73]); share=known/total*100
 bars=ax.barh(['Retailrocket','REES46 Cosmetics','REES46 Electronics'],share,color='#315a85')
 ax.set_xlim(0,100);ax.set_xlabel('Доля тестовых buy-наблюдений с known_user=True, %')
 ax.set_title('Покрытие тестовых пар известными пользователями')

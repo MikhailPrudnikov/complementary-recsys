@@ -1,16 +1,13 @@
 {
-  "split_fingerprint": "d277665eeedd8efa02e4443098ddba0348d8eaa01a4b794b4314c0dddf4482d0",
-  "selection_metric": "validation NDCG@10",
-  "validation_seed": 42,
+  "split_fingerprint": "b85ecd86f1c01a9168ad75183e95427f6e376aacce1e3011c10a1cf9b42c8cb8",
+  "selection_metric": "fixed config",
+  "validation_seed": null,
   "test_seeds": [
     42,
     43,
     44
   ],
-  "rank_grid": [
-    16,
-    32
-  ],
+  "rank_grid": [],
   "shared_rank_groups": [
     [
       "Tucker buy-only",
@@ -39,11 +36,7 @@
       "Tucker 4D"
     ]
   ],
-  "view_weight_grid": [
-    0.25,
-    0.5,
-    1.0
-  ],
+  "view_weight_grid": [],
   "buy_fractions": [
     1.0,
     0.5,
@@ -52,118 +45,118 @@
   "quality_margin_absolute": 0.01,
   "selected_models": [
     {
-      "name": "MostPopular",
-      "model": "most_popular"
+      "model": "most_popular",
+      "name": "MostPopular"
     },
     {
-      "name": "Tucker buy-only",
       "model": "tucker",
-      "use_views": false,
+      "name": "Tucker buy-only",
       "training": {
         "rank": 32
-      }
+      },
+      "use_views": false
     },
     {
-      "name": "Tucker buy+view",
       "model": "tucker",
+      "name": "Tucker buy+view",
       "training": {
         "rank": 32,
         "view_weight": 0.25
       }
     },
     {
-      "name": "TwoTower Buy-only",
-      "model": "two_tower",
       "mode": "buy_only",
+      "model": "two_tower",
+      "name": "TwoTower Buy-only",
       "training": {
         "rank": 16
       }
     },
     {
-      "name": "TwoTower Mixed",
-      "model": "two_tower",
       "mode": "mixed",
+      "model": "two_tower",
+      "name": "TwoTower Mixed",
       "training": {
         "rank": 16
       }
     },
     {
-      "name": "TwoTower Shared",
-      "model": "two_tower",
       "mode": "shared",
+      "model": "two_tower",
+      "name": "TwoTower Shared",
       "training": {
         "rank": 16,
         "view_weight": 0.25
       }
     },
     {
-      "name": "HOSVD",
       "model": "hosvd",
+      "name": "HOSVD",
       "training": {
         "rank": 32
       }
     },
     {
+      "model": "distmult",
       "name": "DistMult buy-only",
-      "model": "distmult",
-      "use_views": false,
       "training": {
         "rank": 32
-      }
+      },
+      "use_views": false
     },
     {
+      "model": "distmult",
       "name": "DistMult buy+view",
-      "model": "distmult",
       "training": {
         "rank": 32
       }
     },
     {
+      "model": "cp",
       "name": "CP buy-only",
-      "model": "cp",
-      "use_views": false,
       "training": {
         "rank": 16
-      }
+      },
+      "use_views": false
     },
     {
+      "model": "cp",
       "name": "CP buy+view",
-      "model": "cp",
       "training": {
         "rank": 16
       }
     },
     {
+      "model": "complex",
       "name": "ComplEx buy-only",
-      "model": "complex",
-      "use_views": false,
       "training": {
         "rank": 16
-      }
+      },
+      "use_views": false
     },
     {
+      "model": "complex",
       "name": "ComplEx buy+view",
-      "model": "complex",
       "training": {
         "rank": 16
       }
     },
     {
-      "name": "MIG-TF",
-      "model": "mig_tf",
       "hyperbolic_rank": 4,
+      "model": "mig_tf",
+      "name": "MIG-TF",
       "training": {
         "rank": 32
       }
     },
     {
-      "name": "Graph buy-buy",
       "model": "graph_paths",
+      "name": "Graph buy-buy",
       "view_weight": 0
     },
     {
-      "name": "Graph mixed paths",
       "model": "graph_paths",
+      "name": "Graph mixed paths",
       "view_weight": 1.0
     }
   ]
