@@ -263,10 +263,10 @@ def make_report(amazon: Path, historical_amazon: Path, temporal: Path, output: P
     add("Дальше проверим устойчивость результата на других каталогах, расширим ручную оценку "
         "совместимости и подключим командные варианты Pretrain и Transformer.")
     add("Воспроизведение", "head")
-    add(f"Репозиторий команды — <link href='{REPO}' color='#1F5475'>{REPO}</link>. "
+    add(f"Репозиторий команды — <link href='{REPO}' color='#1F5475'>код и инструкции на GitHub</link>. "
         "Установите пакет через <b>python -m pip install -e .</b>. В README приведены источники "
         "данных, команды подготовки сплитов Amazon и REES46 и команды запуска. Для исправленной "
-        "серии Amazon используется configs/filipp_owned.json с --fixed-settings. Таблицы, "
+        "серии Amazon используется configs/amazon_train_only.json с --fixed-settings. Таблицы, "
         "использованные при сборке PDF, лежат в docs/results.")
     add("Источники", "head")
     for number, title, link in [

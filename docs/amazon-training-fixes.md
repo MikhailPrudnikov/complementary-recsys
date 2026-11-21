@@ -1,6 +1,6 @@
 # Исправления в Mixed и тензорных экспериментах
 
-Здесь разобраны замечания к нашим моделям и дополнительным бейзлайнам. Покупки, просмотры и границы validation/test берём из прежнего сплита Карачурина. Локальные режимы Buy-only и Shared сохраняют свой прежний протокол.
+Здесь разобраны замечания к нашим моделям и дополнительным бейзлайнам. Покупки, просмотры и границы validation/test берём из исходного сплита Amazon. Локальные режимы Buy-only и Shared сохраняют свой прежний протокол.
 
 ## 1. Mixed учился на одних и тех же просмотрах
 
@@ -32,7 +32,7 @@
 
 ```bash
 python scripts/run_study.py --split data/splits/amazon-v1 \
-  --config configs/filipp_owned.json --output runs/filipp-amazon-train-only \
+  --config configs/amazon_train_only.json --output runs/amazon-train-only-reproduction \
   --fixed-settings
 ```
 
@@ -52,5 +52,5 @@ NDCG@10 по трём seed.
 сэмплирования отрицательных пар, поэтому прирост нельзя приписать одной
 из этих правок.
 
-[Сравнение до и после по трём метрикам](results/amazon/before_after.csv) ·
-[Полная новая сводка](results/amazon/test_summary.csv).
+[Сравнение до и после по трём метрикам](results/amazon-train-only/before_after.csv) ·
+[Полная новая сводка](results/amazon-train-only/test_summary.csv).

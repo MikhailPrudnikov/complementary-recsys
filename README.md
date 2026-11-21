@@ -56,13 +56,13 @@ Amazon metadata provides static product-link graphs, without user identities or 
 
 Tucker learns from product identities and relations, while neural models can also use available product features. Comparisons therefore assess the complete approaches. Results are compared within each dataset.
 
-## Team
+## Work areas
 
-| Member | Responsibilities |
+| Area | Responsibilities |
 | --- | --- |
-| Mikhail Prudnikov | Shared encoder, Shared, Pretrain, and Transformer |
-| Mikhail Karachurin | Dataset discovery and auditing, splits, metrics, MostPopular, and Buy-only |
-| Filipp Nikulenko | Tucker 3D/4D, HOSVD, Mixed, and computational cost analysis |
+| Two-tower models | Shared encoder, Shared, Pretrain, and Transformer |
+| Data and evaluation | Dataset discovery and auditing, splits, metrics, MostPopular, and Buy-only |
+| Tensor models | Tucker 3D/4D, HOSVD, Mixed, and computational cost analysis |
 
 Experiment runs, analysis, report writing, and cross-review are shared across the team.
 
@@ -113,7 +113,7 @@ and chronological splitting sections, then run:
 
 ```bash
 complementary-recsys run --split data/splits/seed_42/rees46_electronics \
-  --config configs/temporal_pilot.json --output runs/electronics-validation
+  --config configs/rees46_personalization.json --output runs/electronics-validation
 ```
 
 The temporal evaluator uses categories inferred from training pairs and reports
@@ -125,7 +125,7 @@ MIG-TF uses the paper's Lorentz score with a frozen pretrained Tucker base.
 The training protocol is adapted to this project with sampled BCE, curvature
 fixed at −1, and no paper-specific dropout or reciprocal-edge augmentation.
 
-For Kaggle, [filipp_experiments.ipynb](notebooks/filipp_experiments.ipynb)
+For Kaggle, [amazon_experiments.ipynb](notebooks/amazon_experiments.ipynb)
 uses the same package and config. Point it at a pinned source snapshot and
 a pinned split with its manifest. Set `RECSYS_CODE_REVISION` to the source
 snapshot identifier. For a CLI run on a GPU, add `--device cuda`.
@@ -146,7 +146,7 @@ Then run:
 
 ```bash
 python scripts/run_study.py --split data/splits/amazon-v1 \
-  --config configs/filipp_owned.json --output runs/filipp-amazon-train-only --fixed-settings
+  --config configs/amazon_train_only.json --output runs/amazon-train-only-reproduction --fixed-settings
 ```
 
 The corrected Amazon study reuses fixed ranks and weights selected on validation in the initial study. That selection considered ranks 16 and 32. Controls within one family
@@ -160,7 +160,7 @@ merges buys with a fresh view sample, and all known training views are protected
 from negative sampling. Mixed uses the requested target category at scoring.
 The historical Shared and Buy-only controls keep their original training policy.
 The project's own gradient models use train-only negative sampling.
-See the [correction study](docs/filipp-model-fixes.md) for the owned-model config
+See the [correction study](docs/amazon-training-fixes.md) for the train-only config
 and the separate comparison at the original hyperparameters.
 For an existing study, `python scripts/backfill_hit_rate.py <study-directory>`
 adds HitRate@10 from its saved rankings while preserving the original training manifests.
@@ -173,7 +173,7 @@ python scripts/prepare_cosmetics_temporal.py --raw data/raw/rees46_cosmetics \
   --output data/splits/cosmetics-active-v1 --database /tmp/cosmetics-study.duckdb \
   --max-users 3000
 python scripts/run_study.py --split data/splits/cosmetics-active-v1 \
-  --config configs/temporal_pilot.json --output runs/filipp-cosmetics-study
+  --config configs/rees46_personalization.json --output runs/rees46-cosmetics-personalization-reproduction
 ```
 
 The cohort is selected from training sessions after the global time split.
@@ -181,12 +181,12 @@ The split report records cutoff times, cohort rules and pair counts. Tucker
 3D and 4D share a product rank selected from 8 and 16 on validation. Both
 rank the same test queries and the same candidates.
 
-The [report inputs](docs/results/) contain the corrected Amazon results, the historical Amazon summaries, and the REES46 summaries. The [historical reproduction archive](docs/filipp-reproducibility.zip) contains the original code and settings for the Amazon controls. Install `reportlab` to render the same PDF:
+The [report inputs](docs/results/) contain the corrected Amazon results, the historical Amazon summaries, and the REES46 summaries. The [historical reproduction archive](docs/historical-reproduction.zip) contains the original code and settings for the Amazon controls. Install `reportlab` to render the same PDF:
 
 ```bash
-python scripts/build_interim_report.py --amazon docs/results/amazon \
-  --historical-amazon docs/results/amazon-controls \
-  --temporal docs/results/cosmetics --transfer docs/results/electronics \
-  --examples docs/results/amazon-controls/reviewed_examples.json \
+python scripts/build_interim_report.py --amazon docs/results/amazon-train-only \
+  --historical-amazon docs/results/amazon-historical \
+  --temporal docs/results/rees46-cosmetics-personalization --transfer docs/results/rees46-electronics-transfer \
+  --examples docs/results/amazon-historical/reviewed_examples.json \
   --output docs/interim-report.pdf --full-amazon
 ```

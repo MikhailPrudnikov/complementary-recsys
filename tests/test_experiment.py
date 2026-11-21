@@ -102,7 +102,7 @@ def test_personalized_models_share_queries(pair_data, tmp_path):
     amazon = AmazonSplitter().split(*pair_data)
     parts = {name: getattr(amazon, name).assign(user_id="test-user") for name in ("train", "validation", "test")}
     bundle = SplitBundle(amazon.items, **parts, holdout=None)
-    config = json.loads((ROOT / "configs/temporal_pilot.json").read_text())
+    config = json.loads((ROOT / "configs/rees46_personalization.json").read_text())
     config["training"].update(rank=4, epochs=1, batch_size=32)
     table = ExperimentRunner(bundle, config, "validation").run(tmp_path / "personalized")
     assert table["queries"].nunique() == 1
@@ -114,7 +114,7 @@ def test_two_tower_modes_share_the_catalog_and_evaluator(pair_data, tmp_path):
     items, pairs = pair_data
     items = items.assign(title="guitar case")
     bundle = AmazonSplitter().split(items, pairs)
-    config = json.loads((ROOT / "configs/filipp_main.json").read_text())
+    config = json.loads((ROOT / "configs/amazon_historical_study.json").read_text())
     config["models"] = [spec for spec in config["models"] if spec["model"] == "two_tower"]
     config["training"].update(rank=4, epochs=1, batch_size=32)
 
